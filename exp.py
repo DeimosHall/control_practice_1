@@ -1,66 +1,32 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot():
-    # Definir los parámetros de la señal
-    t = np.linspace(0, 5, num=1000) # Tiempo
-    A = 1 # Amplitud
-    tau = 2 # Constante de tiempo
 
-    # Generar la señal
-    y = A * np.exp(t / tau)
+plot_time = np.linspace(0, 5, num=1000)
+stem_time = np.linspace(0, 5, num=10)
+Amplitude = 1
+tau = 2 # Time constant
+plot_signal = Amplitude * np.exp(plot_time / tau)
+stem_signal = Amplitude * np.exp(stem_time / tau)
 
-    # Graficar la señal
-    plt.plot(t, y)
+def plot_labels(title: str):
     plt.xlabel('Tiempo')
     plt.ylabel('Amplitud')
-    plt.title('Señal de crecimiento exponencial')
+    plt.title(title)
     plt.show()
+
+def plot():
+    plt.plot(plot_time, plot_signal)
+    plot_labels(title='Señal de crecimiento exponencial')
 
 def stem():
-    # Definir los parámetros de la señal
-    t = np.linspace(0, 5, num=10) # Tiempo
-    A = 1 # Amplitud
-    tau = 2 # Constante de tiempo
-
-    # Generar la señal
-    y = A * np.exp(t / tau)
-
-    # Graficar la señal
-    plt.stem(t, y)
-    plt.xlabel('Tiempo')
-    plt.ylabel('Amplitud')
-    plt.title('Señal de crecimiento exponencial')
-    plt.show()
+    plt.stem(stem_time, stem_signal)
+    plot_labels(title='Señal de crecimiento exponencial')
 
 def plot_inv():
-    # Definir los parámetros de la señal
-    t = np.linspace(0, 5, num=1000) # Tiempo
-    A = 1 # Amplitud
-    tau = 2 # Constante de tiempo
-
-    # Generar la señal
-    y = A * np.exp(t / tau)
-
-    # Graficar la señal
-    plt.plot(-t, y)
-    plt.xlabel('Tiempo')
-    plt.ylabel('Amplitud')
-    plt.title('Señal de crecimiento exponencial')
-    plt.show()
+    plt.plot(-plot_time, plot_signal)
+    plot_labels(title='Señal de crecimiento exponencial')
 
 def stem_inv():
-    # Definir los parámetros de la señal
-    t = np.linspace(0, 5, num=10) # Tiempo
-    A = 1 # Amplitud
-    tau = 2 # Constante de tiempo
-
-    # Generar la señal
-    y = A * np.exp(-t / tau)
-
-    # Graficar la señal
-    plt.stem(t, y)
-    plt.xlabel('Tiempo')
-    plt.ylabel('Amplitud')
-    plt.title('Señal de crecimiento exponencial')
-    plt.show()
+    plt.stem(-stem_time, stem_signal)
+    plot_labels(title='Señal de crecimiento exponencial')
