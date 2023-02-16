@@ -1,26 +1,28 @@
 #!/bin/python3
 
-from square_signal import square_signal
 import step
 import pulse
 import ramp
 import exp
 import sin_exp
 
-# signal = square_signal(frequency=1, amplitude=1, duration=5)
-# signal.plot()
-# signal.stem(num_samples=30)
-
+# Exponential signals
 exp.plot()
 exp.stem()
 exp.plot_inv()
 exp.stem_inv()
 
+# Sinusoidal signals
 sin_exp.plot()
 sin_exp.stem()
 
-step.show()
+# Step signals
+step.plot()
 step.stem()
-pulse.show()
+
+# Pulse signal
+pulse.plot()
+
+# Ramp signal
 ramp.plot()
 ramp.stem()

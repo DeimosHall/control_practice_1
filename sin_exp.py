@@ -1,38 +1,27 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot():
-    # Definir los parámetros de la señal
-    t = np.linspace(0, 10, num=1000) # Tiempo
-    A = 1 # Amplitud de la onda senoidal
-    f = 2 # Frecuencia de la onda senoidal
-    tau = 1 # Constante de tiempo de la exponencial amortiguada
-    zeta = 0.5 # Coeficiente de amortiguamiento
 
-    # Generar la señal
-    y = A * np.exp(-zeta * t / tau) * np.sin(2 * np.pi * f * t)
+plot_time = np.linspace(0, 10, num=1000)
+stem_time = np.linspace(0, 10, num=100)
+amplitude = 1
+frequency = 2
+tau = 1 # Time constant of the exponential damping
+zeta = 0.5 # Damping coefficient
 
-    # Graficar la señal
-    plt.plot(t, y)
+plot_signal = amplitude * np.exp(-zeta * plot_time / tau) * np.sin(2 * np.pi * frequency * plot_time)
+stem_signal = amplitude * np.exp(-zeta * stem_time / tau) * np.sin(2 * np.pi * frequency * stem_time)
+
+def plot_labels(title: str):
     plt.xlabel('Tiempo')
     plt.ylabel('Amplitud')
-    plt.title('Señal senoidal amortiguada exponencialmente')
+    plt.title(title)
     plt.show()
+
+def plot():
+    plt.plot(plot_time, plot_signal)
+    plot_labels(title='Señal senoidal amortiguada exponencialmente continua')
 
 def stem():
-    # Definir los parámetros de la señal
-    t = np.linspace(0, 10, num=100) # Tiempo
-    A = 1 # Amplitud de la onda senoidal
-    f = 2 # Frecuencia de la onda senoidal
-    tau = 1 # Constante de tiempo de la exponencial amortiguada
-    zeta = 0.5 # Coeficiente de amortiguamiento
-
-    # Generar la señal
-    y = A * np.exp(-zeta * t / tau) * np.sin(2 * np.pi * f * t)
-
-    # Graficar la señal
-    plt.stem(t, y)
-    plt.xlabel('Tiempo')
-    plt.ylabel('Amplitud')
-    plt.title('Señal senoidal amortiguada exponencialmente')
-    plt.show()
+    plt.stem(stem_time, stem_signal)
+    plot_labels(title='Señal senoidal amortiguada exponencialmente discreta')

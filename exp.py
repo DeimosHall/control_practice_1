@@ -17,16 +17,16 @@ def plot_labels(title: str):
 
 def plot():
     plt.plot(plot_time, plot_signal)
-    plot_labels(title='Señal de crecimiento exponencial')
+    plot_labels(title='Señal de crecimiento exponencial continua')
 
 def stem():
     plt.stem(stem_time, stem_signal)
-    plot_labels(title='Señal de crecimiento exponencial')
+    plot_labels(title='Señal de crecimiento exponencial discreta')
 
 def plot_inv():
     plt.plot(-plot_time, plot_signal)
-    plot_labels(title='Señal de crecimiento exponencial')
+    plot_labels(title='Señal de crecimiento exponencial continua')
 
 def stem_inv():
     plt.stem(-stem_time, stem_signal)
-    plot_labels(title='Señal de crecimiento exponencial')
+    plot_labels(title='Señal de crecimiento exponencial discreta')

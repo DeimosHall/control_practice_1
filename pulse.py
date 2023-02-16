@@ -1,16 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def show(n: int = 5):
-    # Crea un vector con n elementos con todos los valores igual a cero.
+
+def plot_labels(title: str):
+    plt.xlabel('Tiempo')
+    plt.ylabel('Amplitud')
+    plt.title(title)
+    plt.show()
+
+def plot(n: int = 5):
+    # Create a vector with n elements with all values equal to zero.
     imp = np.zeros(n)
-    # Establece el valor de la muestra central igual a uno.
+    # Set the value of the central sample equal to one.
     imp[n//2] = 1
 
-    # Ejemplo de uso
-    n = 20
     plt.stem(imp)
-    plt.title('Función Impulso')
-    plt.xlabel('n')
-    plt.ylabel('Amplitud')
-    plt.show()
+    plot_labels(title='Función Impulso')
